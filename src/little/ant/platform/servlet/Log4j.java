@@ -34,7 +34,7 @@ public class Log4j extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer = response.getWriter();
 		// for IE
-		writer.println("<!-- Comet is a programming technique that enables web servers to send data to the client without having any need for the client to request it. -->\n");
+		writer.write("<!-- Comet is a programming technique that enables web servers to send data to the client without having any need for the client to request it. -->\n");
 		writer.flush();
 
 		final AsyncContext ac = request.startAsync();

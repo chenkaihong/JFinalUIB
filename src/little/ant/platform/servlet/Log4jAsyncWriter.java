@@ -54,6 +54,7 @@ public class Log4jAsyncWriter extends Writer {
 	 * 构造AsyncContextQueueWriter 异步线程，当消息队列中被放入数据，将释放take方法的阻塞，将数据发送到http response流上
 	 */
 	public Log4jAsyncWriter() {
+		final String outFormat = "<p>%s</p>";
 		Thread notifierThread = new Thread(new Runnable() {
 			public void run() {
 				while (true) {
@@ -63,8 +64,8 @@ public class Log4jAsyncWriter extends Writer {
 							AsyncContext asyncContext = ac;
 							try {
 								PrintWriter acWriter = ac.getResponse().getWriter();
-								acWriter.println("<script type='text/javascript'>\nwindow.parent.update(\""
-										+ message.replaceAll("\n", "").replaceAll("\r", "") + "\");</script>\n");
+								String printMsg = String.format(outFormat, message.replaceAll("\n", "").replaceAll("\r", ""));
+								acWriter.println(printMsg);
 								acWriter.flush();
 							} catch (IOException ex) {
 								acQueue.remove(asyncContext);
@@ -94,6 +95,7 @@ public class Log4jAsyncWriter extends Writer {
 
 	@Override
 	public void flush() throws IOException {
+		
 	}
 
 	@Override
