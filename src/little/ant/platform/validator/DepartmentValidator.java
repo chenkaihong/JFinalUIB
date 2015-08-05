@@ -1,11 +1,11 @@
 package little.ant.platform.validator;
 
-import little.ant.platform.model.Department;
-
 import org.apache.log4j.Logger;
 
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
+
+import little.ant.platform.model.Department;
 
 public class DepartmentValidator extends Validator {
 

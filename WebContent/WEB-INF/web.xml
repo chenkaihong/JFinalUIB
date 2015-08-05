@@ -21,16 +21,6 @@
 		<url-pattern>/se/log4j</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>  
-    	<servlet-name>log4jTest</servlet-name>  
-    	<servlet-class>little.ant.platform.servlet.Log4jOutTest</servlet-class>
-    	<async-supported>true</async-supported>
- 	</servlet>
-	<servlet-mapping>
-		<servlet-name>log4jTest</servlet-name>
-		<url-pattern>/se/log4jTest</url-pattern>
-	</servlet-mapping>
-	
 	<!-- Druid 数据源查看 -->
 	<servlet>
 		<servlet-name>DruidStatView</servlet-name>
